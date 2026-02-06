@@ -1,40 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Snake</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <main class="wrap">
-      <section class="panel">
-        <header class="header">
-          <div class="title">Snake</div>
-          <div class="score" id="score">Score: 0</div>
-        </header>
 
-        <div class="board" role="application" aria-label="Snake game">
-          <canvas id="game" width="420" height="420"></canvas>
-          <div class="overlay" id="overlay" aria-live="polite"></div>
-          <div class="score-pop" id="scorePop" aria-hidden="true"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snake</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="panel">
+      <header class="header">
+        <div class="title">Snake</div>
+        <div class="score" id="score">Score: 0</div>
+      </header>
+
+      <div class="board" role="application" aria-label="Snake game">
+        <canvas id="game" width="420" height="420"></canvas>
+        <div class="overlay" id="overlay" aria-live="polite"></div>
+        <div class="score-pop" id="scorePop" aria-hidden="true"></div>
+      </div>
+
+      <div class="mobile-controls" aria-label="On-screen controls">
+        <button data-dir="up" aria-label="Up">▲</button>
+        <div class="row">
+          <button data-dir="left" aria-label="Left">◀</button>
+          <button data-dir="down" aria-label="Down">▼</button>
+          <button data-dir="right" aria-label="Right">▶</button>
         </div>
+      </div>
 
-        <div class="mobile-controls" aria-label="On-screen controls">
-          <button data-dir="up" aria-label="Up">▲</button>
-          <div class="row">
-            <button data-dir="left" aria-label="Left">◀</button>
-            <button data-dir="down" aria-label="Down">▼</button>
-            <button data-dir="right" aria-label="Right">▶</button>
-          </div>
-        </div>
+      <p class="help">
+        Controls: Arrow keys or WASD. Space to start/restart.
+      </p>
+    </section>
+  </main>
 
-        <p class="help">
-          Controls: Arrow keys or WASD. Space to start/restart.
-        </p>
-      </section>
-    </main>
+  <script src="./snake.js" type="module"></script>
+</body>
 
-    <script src="/snake.js" type="module"></script>
-  </body>
 </html>
