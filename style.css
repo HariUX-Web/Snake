@@ -1,0 +1,158 @@
+:root {
+  --bg: #111215;
+  --panel: #1b1d22;
+  --border: #2a2e37;
+  --text: #e9ebef;
+  --muted: #9aa3b2;
+  --accent: #9fd46a;
+  --food: #f25f5c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #161821 0%, #0e0f13 55%);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+}
+
+.wrap {
+  width: min(92vw, 520px);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.title {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.score {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.board {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0d0f14;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+  background: rgba(13, 15, 20, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+}
+
+.score-pop {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f6f0ff;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.score-pop.show {
+  animation: score-pop 450ms ease-out forwards;
+}
+
+@keyframes score-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  15% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+.mobile-controls button {
+  background: #20232b;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.mobile-controls button:hover {
+  border-color: #3a3f4c;
+}
+
+.mobile-controls {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.mobile-controls .row {
+  display: flex;
+  gap: 8px;
+}
+
+.help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .mobile-controls {
+    display: none;
+  }
+}
